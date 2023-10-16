@@ -1441,11 +1441,12 @@ def ask(
         return None, None, None, None
 
     if print_results:
-        try:
-            Code = __import__("IPython.display", fromlist=["Code"]).Code
-            display(Code(sql))
-        except Exception as e:
-            print(sql)
+        print("Test1")
+        # try:
+        #     Code = __import__("IPython.display", fromlist=["Code"]).Code
+        #     display(Code(sql))
+        # except Exception as e:
+        #     print(sql)
 
     if run_sql is None:
         print("If you want to run the SQL query, provide a vn.run_sql function.")
@@ -1459,11 +1460,12 @@ def ask(
         df = run_sql(sql)
 
         if print_results:
-            try:
-                display = __import__("IPython.display", fromlist=["display"]).display
-                display(df)
-            except Exception as e:
-                print(df)
+            print("Test2")
+            # try:
+            #     display = __import__("IPython.display", fromlist=["display"]).display
+            #     display(df)
+            # except Exception as e:
+            #     print(df)
 
         if len(df) > 0 and auto_train:
             add_sql(question=question, sql=sql, tag=types.QuestionCategory.SQL_RAN)
