@@ -473,11 +473,12 @@ class VannaBase(ABC):
             return None, None, None
 
         if print_results:
-            try:
-                Code = __import__("IPython.display", fromlist=["Code"]).Code
-                display(Code(sql))
-            except Exception as e:
-                print(sql)
+            print("Test1")
+            # try:
+            #     Code = __import__("IPython.display", fromlist=["Code"]).Code
+            #     display(Code(sql))
+            # except Exception as e:
+            #     print(sql)
 
         if self.run_sql_is_set is False:
             print(
@@ -493,13 +494,14 @@ class VannaBase(ABC):
             df = self.run_sql(sql)
 
             if print_results:
-                try:
-                    display = __import__(
-                        "IPython.display", fromlist=["display"]
-                    ).display
-                    display(df)
-                except Exception as e:
-                    print(df)
+                print("Test2")
+                # try:
+                #     display = __import__(
+                #         "IPython.display", fromlist=["display"]
+                #     ).display
+                #     display(df)
+                # except Exception as e:
+                #     print(df)
 
             if len(df) > 0 and auto_train:
                 self.add_question_sql(question=question, sql=sql)
